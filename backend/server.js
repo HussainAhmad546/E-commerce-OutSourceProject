@@ -1,30 +1,25 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const authRouter = require("./routes/auth/auth-routes");
-const adminProductsRouter = require("./routes/admin/products-routes");
-const adminOrderRouter = require("./routes/admin/order-routes");
+const cookieParser = require("cookie-parser");
+const  dotenv = require('dotenv');
+const colors = require('colors');
+const  connectDB = require('./config/db.js');
+const authRouter = require("./routes/authRoutes/authRoutes.js");
+const adminProductsRouter = require("./routes/adminRoutes/productsRoutes.js");
+const adminOrderRouter = require("./routes/adminRoutes/orderRoutes.js");
+const shopProductsRouter = require("./routes/shopRoutes/productsRoutes.js");
+const shopCartRouter = require("./routes/shopRoutes/cartRoutes.js");
+const shopAddressRouter = require("./routes/shopRoutes/addressRoutes.js");
+const shopOrderRouter = require("./routes/shopRoutes/orderRoutes.js");
+const shopSearchRouter = require("./routes/shopRoutes/searchRoutes.js");
+const shopReviewRouter = require("./routes/shopRoutes/reviewRoutes.js");
+const commonFeatureRouter = require("./routes/commonRoutes/featureRoutes.js");
 
-const shopProductsRouter = require("./routes/shop/products-routes");
-const shopCartRouter = require("./routes/shop/cart-routes");
-const shopAddressRouter = require("./routes/shop/address-routes");
-const shopOrderRouter = require("./routes/shop/order-routes");
-const shopSearchRouter = require("./routes/shop/search-routes");
-const shopReviewRouter = require("./routes/shop/review-routes");
-
-const commonFeatureRouter = require("./routes/common/feature-routes");
-
-//create a database connection -> u can also
-//create a separate file for this and then import/use that file here
-
-mongoose
-  .connect("mongodb+srv://usamabinhaleem524:kqpAl3K4pUDVTI08@cluster0.ujwxv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-  .then(() => console.log("MongoDB connected"))
-  .catch((error) => console.log(error));
-
+dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+app.use(express.json());
+connectDB();
+app.use(cookieParser());
 
 app.use(
   cors({
@@ -41,19 +36,19 @@ app.use(
   })
 );
 
-app.use(cookieParser());
-app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/admin/products", adminProductsRouter);
 app.use("/api/admin/orders", adminOrderRouter);
-
 app.use("/api/shop/products", shopProductsRouter);
 app.use("/api/shop/cart", shopCartRouter);
 app.use("/api/shop/address", shopAddressRouter);
 app.use("/api/shop/order", shopOrderRouter);
 app.use("/api/shop/search", shopSearchRouter);
 app.use("/api/shop/review", shopReviewRouter);
-
 app.use("/api/common/feature", commonFeatureRouter);
 
-app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
+const PORT = process.env.PORT || 5000;
+app.listen(
+  PORT,
+  console.log(`App running in ${process.env.PORT} mode on port ${PORT}`.yellow.bold)
+);

@@ -4,8 +4,8 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
-import { Toaster } from "./components/ui/toaster.jsx";
-import './i18n';
+import { Toaster } from "./components/smallCommonComponents/Toaster.jsx";
+import './components/common/LanguageSwitcherMain.jsx';
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>

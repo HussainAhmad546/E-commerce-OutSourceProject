@@ -1,27 +1,27 @@
 import { Route, Routes } from "react-router-dom";
-import AuthLayout from "./components/auth/layout";
-import AuthLogin from "./pages/auth/login";
-import AuthRegister from "./pages/auth/register";
-import AdminLayout from "./components/admin-view/layout";
-import AdminDashboard from "./pages/admin-view/dashboard";
-import AdminProducts from "./pages/admin-view/products";
-import AdminOrders from "./pages/admin-view/orders";
-import AdminFeatures from "./pages/admin-view/features";
-import ShoppingLayout from "./components/shopping-view/layout";
-import NotFound from "./pages/not-found";
-import ShoppingHome from "./pages/shopping-view/home";
-import ShoppingListing from "./pages/shopping-view/listing";
-import ShoppingCheckout from "./pages/shopping-view/checkout";
-import ShoppingAccount from "./pages/shopping-view/account";
-import CheckAuth from "./components/common/check-auth";
-import UnauthPage from "./pages/unauth-page";
+import AuthLayout from "./components/common/AuthLayout";
+import AuthLogin from "./screens/authScreen/LoginScreen";
+import AuthRegister from "./screens/authScreen/RegisterScreen";
+import AdminLayout from "./components/adminScreenComponents/layout";
+import AdminDashboard from "./screens/adminScreen/dashboard";
+import AdminProducts from "./screens/adminScreen/products";
+import AdminOrders from "./screens/adminScreen/orders";
+import AdminFeatures from "./screens/adminScreen/features";
+import ShoppingLayout from "./components/userScreenComponents/ShoppingLayout";
+import NotFound from "./screens/NotFoundPage";
+import ShoppingHome from "./screens/userScreen/home";
+import ShoppingListing from "./screens/userScreen/listing";
+import ShoppingCheckout from "./screens/userScreen/checkout";
+import ShoppingAccount from "./screens/userScreen/account";
+import CheckAuth from "./components/common/CheckAuth";
+import UnauthPage from "./screens/UnAuthPage";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { checkAuth } from "./store/auth-slice";
-import { Skeleton } from "@/components/ui/skeleton";
-import PaypalReturnPage from "./pages/shopping-view/paypal-return";
-import PaymentSuccessPage from "./pages/shopping-view/payment-success";
-import SearchProducts from "./pages/shopping-view/search";
+import { checkAuth } from "./store/authScreenSlice";
+import { Skeleton } from "@/components/smallCommonComponents/SkeletonLoader";
+import PaypalReturnPage from "./screens/userScreen/paypal-return";
+import PaymentSuccessPage from "./screens/userScreen/payment-success";
+import SearchProducts from "./screens/userScreen/search";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useSelector(
