@@ -2,26 +2,26 @@ import { Route, Routes } from "react-router-dom";
 import AuthLayout from "./components/common/AuthLayout";
 import AuthLogin from "./screens/authScreen/LoginScreen";
 import AuthRegister from "./screens/authScreen/RegisterScreen";
-import AdminLayout from "./components/adminScreenComponents/layout";
-import AdminDashboard from "./screens/adminScreen/dashboard";
-import AdminProducts from "./screens/adminScreen/products";
-import AdminOrders from "./screens/adminScreen/orders";
-import AdminFeatures from "./screens/adminScreen/features";
+import AdminLayout from "./components/adminScreenComponents/AdminLayout";
+import AdminDashboard from "./screens/adminScreen/AdminDashboardScreen";
+import AdminProducts from "./screens/adminScreen/AdminProductsScreen";
+import AdminOrders from "./screens/adminScreen/AdminOrdersScreen";
+import AdminFeatures from "./screens/adminScreen/AdminFeaturesScreen";
 import ShoppingLayout from "./components/userScreenComponents/ShoppingLayout";
 import NotFound from "./screens/NotFoundPage";
-import ShoppingHome from "./screens/userScreen/home";
-import ShoppingListing from "./screens/userScreen/listing";
-import ShoppingCheckout from "./screens/userScreen/checkout";
-import ShoppingAccount from "./screens/userScreen/account";
+import ShoppingHome from "./screens/userScreen/HomeScreen";
+import ShoppingListing from "./screens/userScreen/ListingScreen";
+import ShoppingCheckout from "./screens/userScreen/CheckoutScreen";
+import ShoppingAccount from "./screens/userScreen/ShoppingAccountScreen";
 import CheckAuth from "./components/common/CheckAuth";
 import UnauthPage from "./screens/UnAuthPage";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkAuth } from "./store/authScreenSlice";
 import { Skeleton } from "@/components/smallCommonComponents/SkeletonLoader";
-import PaypalReturnPage from "./screens/userScreen/paypal-return";
-import PaymentSuccessPage from "./screens/userScreen/payment-success";
-import SearchProducts from "./screens/userScreen/search";
+import PaypalReturnPage from "./screens/userScreen/PayPalReturnScreen";
+import PaymentSuccessPage from "./screens/userScreen/PaymentSuccessScreen";
+import SearchProducts from "./screens/userScreen/SearchProductsScreen";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useSelector(

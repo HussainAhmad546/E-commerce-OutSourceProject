@@ -10,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "../smallCommonComponents/TableCommon";
-import AdminOrderDetailsView from "./order-details";
+import AdminOrderDetailsView from "./AdminOrderDetailsView";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getAllOrdersForAdmin,

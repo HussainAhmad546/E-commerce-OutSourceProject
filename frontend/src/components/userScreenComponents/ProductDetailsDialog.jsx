@@ -1,4 +1,3 @@
-import { StarIcon } from "lucide-react";
 import { Avatar, AvatarFallback } from "../smallCommonComponents/AvatarImage";
 import { Button } from "../smallCommonComponents/ButtonVariants";
 import { Dialog, DialogContent } from "../smallCommonComponents/ModalCommon";
