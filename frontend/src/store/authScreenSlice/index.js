@@ -1,9 +1,10 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"; 
 import axios from "axios";
 
 const initialState = {
   isAuthenticated: false,
   isLoading: true,
+  error: null,
   user: null,
 };
 
@@ -74,6 +75,41 @@ export const checkAuth = createAsyncThunk(
   }
 );
 
+// Reset Password AsyncThunk
+export const resetPassword = createAsyncThunk(
+  "auth/resetPassword",
+  async ({ data, token }, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/api/auth/reset-password/${token}`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const forgetPass = createAsyncThunk(
+  "/auth/forgetPassword",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post("http://localhost:5000/api/auth/forget-password", data);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);  // Handling the error
+    }
+  }
+);
+
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -82,6 +118,22 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // Reset Password cases
+      .addCase(resetPassword.pending, (state) => {
+        state.isLoading = true;
+        state.success = false;
+        state.error = null;
+      })
+      .addCase(resetPassword.fulfilled, (state) => {
+        state.isLoading = false;
+        state.success = true;
+      })
+      .addCase(resetPassword.rejected, (state, action) => {
+        state.isLoading = false;
+        state.success = false;
+        state.error = action.payload;
+      })
+
       .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
       })
@@ -127,7 +179,18 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
-      });
+      })
+      .addCase(forgetPass.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(forgetPass.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(forgetPass.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload.message;  // Storing the error message
+      })
   },
 });
 

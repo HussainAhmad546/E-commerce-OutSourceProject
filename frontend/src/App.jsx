@@ -22,6 +22,9 @@ import { Skeleton } from "@/components/smallCommonComponents/SkeletonLoader";
 import PaypalReturnPage from "./screens/userScreen/PayPalReturnScreen";
 import PaymentSuccessPage from "./screens/userScreen/PaymentSuccessScreen";
 import SearchProducts from "./screens/userScreen/SearchProductsScreen";
+import ForgetPasswordScreen from "./screens/authScreen/forgetPasswordScreen";
+import ResetPasswordSentScreen from "./screens/userScreen/ResetPasswordSentScreen";
+import ResetPasswordScreen from "./screens/userScreen/ResetPasswordScreen";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -33,9 +36,13 @@ function App() {
     dispatch(checkAuth());
   }, [dispatch]);
 
-  if (isLoading) return <Skeleton className="w-[800] bg-black h-[600px]" />;
-
-  console.log(isLoading, user);
+  if (isLoading) {
+    return (
+      <div className="center-loader">
+        <Skeleton className="w-[40px] h-[40px]" />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
@@ -59,6 +66,11 @@ function App() {
         >
           <Route path="login" element={<AuthLogin />} />
           <Route path="register" element={<AuthRegister />} />
+        </Route>
+        <Route path="/" element={<AuthLayout />}>
+          <Route path="forget-password" element={<ForgetPasswordScreen />} />
+          <Route path="reset-password-sent" element={<ResetPasswordSentScreen />} />
+          <Route path="reset-your-password/:token" element={<ResetPasswordScreen/>} />
         </Route>
         <Route
           path="/admin"
@@ -96,4 +108,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;

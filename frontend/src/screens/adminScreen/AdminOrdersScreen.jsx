@@ -1,4 +1,15 @@
-import AdminOrdersView from "@/components/adminScreenComponents/orders";
+// import AdminOrdersView from "@/components/adminScreenComponents/AdminOrdersView";
+
+// function AdminOrders() {
+//   return (
+//     <div>
+//       <AdminOrdersView />
+//     </div>
+//   );
+// }
+
+// export default AdminOrders;
+import AdminOrdersView from "../../components/adminScreenComponents/AdminOrdersView";
 
 function AdminOrders() {
   return (
@@ -8,4 +19,4 @@ function AdminOrders() {
   );
 }
 
-export default AdminOrders;
+export default AdminOrders;

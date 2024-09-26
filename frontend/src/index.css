@@ -67,3 +67,34 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.circle-loader {
+  display: inline-block;
+  position: relative;
+}
+
+.circle-loader .spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #222; /* Customize the color */
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.center-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Make sure it fills the height of the screen */
+}

@@ -5,7 +5,6 @@ import UserCartItemsContent from "@/components/userScreenComponents/UserCartItem
 import { Button } from "@/components/smallCommonComponents/ButtonVariants";
 import { useState } from "react";
 import { createNewOrder } from "@/store/userScreenSlice/orderSlice";
-import { Navigate } from "react-router-dom";
 import { useToast } from "@/components/smallCommonComponents/UseToast";
 
 function ShoppingCheckout() {
