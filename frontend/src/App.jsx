@@ -25,6 +25,7 @@ import SearchProducts from "./screens/userScreen/SearchProductsScreen";
 import ForgetPasswordScreen from "./screens/authScreen/forgetPasswordScreen";
 import ResetPasswordSentScreen from "./screens/userScreen/ResetPasswordSentScreen";
 import ResetPasswordScreen from "./screens/userScreen/ResetPasswordScreen";
+import AdminUsersScreen from "./screens/adminScreen/AdminUsersScreen";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -83,6 +84,7 @@ function App() {
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="products" element={<AdminProducts />} />
           <Route path="orders" element={<AdminOrders />} />
+          <Route path="users" element={<AdminUsersScreen/>} />
           <Route path="features" element={<AdminFeatures />} />
         </Route>
         <Route

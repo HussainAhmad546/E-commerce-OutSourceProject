@@ -1,5 +1,7 @@
+import react , {useState} from 'react';
 import { Button } from "../smallCommonComponents/ButtonVariants";
 import { Card, CardContent, CardFooter } from "../smallCommonComponents/CommonCard";
+import DeleteConfirmationModal from "@/modals/DeleteConfirmationModal";
 
 function AdminProductTile({
   product,
@@ -8,10 +10,12 @@ function AdminProductTile({
   setCurrentEditedId,
   handleDelete,
 }) {
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
   return (
-    <Card className="w-full max-w-sm mx-auto">
-      <div>
-        <div className="relative">
+    <>
+    <Card className="w-full max-w-sm mx-auto flex flex-col h-full">
+    <div className="flex flex-col h-full">
+       <div className="relative">
           <img
             src={product?.image}
             alt={product?.title}
@@ -19,7 +23,7 @@ function AdminProductTile({
           />
         </div>
         <CardContent>
-          <h2 className="text-xl font-bold mb-2 mt-2">{product?.title}</h2>
+          <h2 className="text-xl font-bold mb-2 mt-2 line-clamp-2">{product?.title}</h2>
           <div className="flex justify-between items-center mb-2">
             <span
               className={`${
@@ -33,7 +37,7 @@ function AdminProductTile({
             ) : null}
           </div>
         </CardContent>
-        <CardFooter className="flex justify-between items-center">
+        <CardFooter className="flex justify-between items-center mt-auto">
           <Button
             onClick={() => {
               setOpenCreateProductsDialog(true);
@@ -43,10 +47,18 @@ function AdminProductTile({
           >
             Edit
           </Button>
-          <Button onClick={() => handleDelete(product?._id)}>Delete</Button>
+          <Button onClick={() => setOpenDeleteModal(true)}>Delete</Button>
         </CardFooter>
       </div>
     </Card>
+      {openDeleteModal && (
+        <DeleteConfirmationModal
+          isOpen={openDeleteModal}
+          onClose={() => setOpenDeleteModal(false)}
+          onConfirm={() => handleDelete(product?._id)}
+        />
+      )}
+  </>
   );
 }
 
