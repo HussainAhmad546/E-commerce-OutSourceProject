@@ -8,29 +8,30 @@ import {
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "../smallCommonComponents/SheetsVariants";
+import { useTranslation } from "react-i18next";
 
 const adminSidebarMenuItems = [
   {
     id: "dashboard",
-    label: "Dashboard",
+    label: "dashboard",
     path: "/admin/dashboard",
     icon: <LayoutDashboard />,
   },
   {
     id: "products",
-    label: "Products",
+    label: "products",
     path: "/admin/products",
     icon: <ShoppingBasket />,
   },
   {
     id: "users",
-    label: "Users",
+    label: "users",
     path: "/admin/users",
     icon: <Users />,
   },
   {
     id: "orders",
-    label: "Orders",
+    label: "orders",
     path: "/admin/orders",
     icon: <BadgeCheck />,
   },
@@ -38,6 +39,7 @@ const adminSidebarMenuItems = [
 
 function MenuItems({ setOpen }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <nav className="mt-8 flex-col flex gap-2">
@@ -51,7 +53,7 @@ function MenuItems({ setOpen }) {
           className="flex cursor-pointer text-xl items-center gap-2 rounded-md px-3 py-2 text-muted-foreground hover:bg-muted hover:text-foreground"
         >
           {menuItem.icon}
-          <span>{menuItem.label}</span>
+          <span>{t(menuItem.label)}</span>
         </div>
       ))}
     </nav>
@@ -60,6 +62,7 @@ function MenuItems({ setOpen }) {
 
 function AdminSideBar({ open, setOpen }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <Fragment>
@@ -69,7 +72,7 @@ function AdminSideBar({ open, setOpen }) {
             <SheetHeader className="border-b">
               <SheetTitle className="flex gap-2 mt-5 mb-5">
                 <ChartNoAxesCombined size={30} />
-                <h1 className="text-2xl font-extrabold">Admin Panel</h1>
+                <h1 className="text-2xl font-extrabold">{t("admin_panel")}</h1>
               </SheetTitle>
             </SheetHeader>
             <MenuItems setOpen={setOpen} />
@@ -82,7 +85,7 @@ function AdminSideBar({ open, setOpen }) {
           className="flex cursor-pointer items-center gap-2"
         >
           <ChartNoAxesCombined size={30} />
-          <h1 className="text-2xl font-extrabold">Admin Panel</h1>
+          <h1 className="text-2xl font-extrabold">{t("admin_panel")}</h1> {/* Translate Admin Panel title */}
         </div>
         <MenuItems />
       </aside>

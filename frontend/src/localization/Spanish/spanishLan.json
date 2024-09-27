@@ -42,6 +42,24 @@
     "chivas": "Chivas",
     "club_america": "Club América",
     "mexico": "México",
-    "cruz_azul": "Cruz Azul"
+    "cruz_azul": "Cruz Azul",
+    "dashboard": "Tablero",
+  "products": "Productos",
+  "users": "Usuarios",
+  "orders": "Pedidos",
+  "admin_panel": "Panel de Administración",
+ "title": "Panel de Productos Globales",
+  "newOrders": "Nuevos Pedidos",
+  "totalIncome": "Ingreso Total",
+  "totalProducts": "Total de Productos",
+  "newUsers": "Nuevos Usuarios",
+  "yearlyStats": "Estadísticas Anuales",
+  "salesRevenue": "Ventas/Ingresos",
+  "percentageChange": "+2.00% (30 días)",
+  "incomeChange": "+4.54% Aumentado",
+  "inventoryGrowth": "+8.00% Crecimiento de Inventario",
+  "earningChange": "-26.00% Ingresos",
+  "toggleMenu": "Alternar menú",
+  "logout": "Cerrar sesión"
   }
   
