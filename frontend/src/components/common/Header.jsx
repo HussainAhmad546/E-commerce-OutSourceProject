@@ -32,11 +32,16 @@ function MenuItems() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   function handleNavigate(getCurrentMenuItem) {
+    if (getCurrentMenuItem.id === "aboutUs") {
+      navigate(getCurrentMenuItem.path);
+      return; 
+    }
     sessionStorage.removeItem("filters");
     const currentFilter =
       getCurrentMenuItem.id !== "home" &&
       getCurrentMenuItem.id !== "products" &&
       getCurrentMenuItem.id !== "search"
+      
         ? {
             category: [getCurrentMenuItem.id],
           }

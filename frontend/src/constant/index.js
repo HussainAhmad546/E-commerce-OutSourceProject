@@ -63,6 +63,7 @@ export const addProductFormElements = [
       { id: "kids", label: "Kids" },
       { id: "accessories", label: "Accessories" },
       { id: "footwear", label: "Footwear" },
+
     ],
   },
   {
@@ -136,6 +137,11 @@ export const shoppingViewHeaderMenuItems = [
     id: "accessories",
     label: "Accessories",
     path: "/shop/listing",
+  },
+  {
+    id: "aboutUs",
+    label: "About Us",
+    path: "/shop/aboutus",
   },
   {
     id: "search",
