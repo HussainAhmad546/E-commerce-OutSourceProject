@@ -32,7 +32,7 @@ function MenuItems() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   function handleNavigate(getCurrentMenuItem) {
-    if (getCurrentMenuItem.id === "aboutUs") {
+    if (getCurrentMenuItem.id === "aboutUs" || getCurrentMenuItem.id === "contact") {
       navigate(getCurrentMenuItem.path);
       return; 
     }
