@@ -27,6 +27,7 @@ import ResetPasswordSentScreen from "./screens/userScreen/ResetPasswordSentScree
 import ResetPasswordScreen from "./screens/userScreen/ResetPasswordScreen";
 import AdminUsersScreen from "./screens/adminScreen/AdminUsersScreen";
 import AboutUsPage from "./components/userScreenComponents/AboutUsComponents";
+import ContactUs from "./components/userScreenComponents/ContactUsComponents";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -103,6 +104,7 @@ function App() {
           <Route path="paypal-return" element={<PaypalReturnPage />} />
           <Route path="payment-success" element={<PaymentSuccessPage />} />
           <Route path="aboutus" element={<AboutUsPage />} />
+          <Route path="contactus" element={<ContactUs />} />
           <Route path="search" element={<SearchProducts />} />
         </Route>
         <Route path="/unauth-page" element={<UnauthPage />} />
