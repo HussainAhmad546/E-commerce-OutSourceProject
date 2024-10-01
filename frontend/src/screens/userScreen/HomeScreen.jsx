@@ -261,11 +261,16 @@ import ProductDetailsDialog from "@/components/userScreenComponents/ProductDetai
 import { getFeatureImages } from "@/store/commonSlice";
 
 const categoriesWithIcon = [
-  { id:"men", label: "Men", icon: ShirtIcon },
-  { id: "women", label: "Women", icon: CloudLightning },
-  { id: "kids", label: "Kids", icon: BabyIcon },
-  { id: "accessories", label: "Accessories", icon: WatchIcon },
-  { id: "footwear", label: "Footwear", icon: UmbrellaIcon },
+  { id:"men", label: "AMERICA FC", icon: ShirtIcon },
+  { id: "women", label: "CHIVAS FC", icon: CloudLightning },
+  { id: "kids", label: "MEXICO TEAM", icon: BabyIcon },
+  { id: "accessories", label: "CRUZ AZUL FC", icon: WatchIcon },
+  { id: "footwear", label: "REAL MADRID", icon: UmbrellaIcon },
+  { id: "footwear", label: "CASTORE RED BULL ", icon: UmbrellaIcon },
+  { id: "footwear", label: "NIKE AF1 WHITE", icon: UmbrellaIcon },
+  { id: "footwear", label: "NIKE AF1 BLACK ", icon: UmbrellaIcon },
+  { id: "footwear", label: "NIKE AF1 BLACK ", icon: UmbrellaIcon },
+  
 ];
 
 const brandsWithIcon = [
@@ -393,7 +398,7 @@ function ShoppingHome() {
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">
-            {t("shop_by_category")} {/* Localized Shop by Category */}
+            {t("shop_by_category")} 
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {categoriesWithIcon.map((categoryItem) => (
