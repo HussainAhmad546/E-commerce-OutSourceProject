@@ -22,7 +22,7 @@ import { Skeleton } from "@/components/smallCommonComponents/SkeletonLoader";
 import PaypalReturnPage from "./screens/userScreen/PayPalReturnScreen";
 import PaymentSuccessPage from "./screens/userScreen/PaymentSuccessScreen";
 import SearchProducts from "./screens/userScreen/SearchProductsScreen";
-import ForgetPasswordScreen from "./screens/authScreen/forgetPasswordScreen";
+import ForgetPasswordScreen from "./screens/authScreen/ForgetPasswordScreen";
 import ResetPasswordSentScreen from "./screens/userScreen/ResetPasswordSentScreen";
 import ResetPasswordScreen from "./screens/userScreen/ResetPasswordScreen";
 import AdminUsersScreen from "./screens/adminScreen/AdminUsersScreen";
