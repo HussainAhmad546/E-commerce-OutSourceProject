@@ -1,10 +1,10 @@
 import React from 'react'
 import FormContainer from './FormContainer';
-import contactUsImage from "../../../assets/images/contact.jpg"
+import contactUsImage from "../../../assets/images/contact_us_banner_img.jpg"
 const ContactUs = () => {
   return (
     <>
-    <div className="container-fluid bg-gray-100 flex justify-center items-center contact-banner-bg h-[80vh]"
+    <div className="container-fluid bg-gray-100 flex justify-center items-center contact-banner-bg h-[70vh]"
       style={{
         backgroundImage: `url(${contactUsImage})`,
         backgroundSize: 'cover',

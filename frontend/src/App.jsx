@@ -28,6 +28,8 @@ import ResetPasswordScreen from "./screens/userScreen/ResetPasswordScreen";
 import AdminUsersScreen from "./screens/adminScreen/AdminUsersScreen";
 import AboutUsPage from "./components/userScreenComponents/AboutUsComponents";
 import ContactUs from "./components/userScreenComponents/ContactUsComponents";
+import PrivacyPolicy from "./screens/userScreen/PrivacyPolicy";
+import TermsOfService from "./screens/userScreen/TermsOfService";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -106,6 +108,8 @@ function App() {
           <Route path="aboutus" element={<AboutUsPage />} />
           <Route path="contactus" element={<ContactUs />} />
           <Route path="search" element={<SearchProducts />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-of-service" element={<TermsOfService />} />
         </Route>
         <Route path="/unauth-page" element={<UnauthPage />} />
         <Route path="*" element={<NotFound />} />
