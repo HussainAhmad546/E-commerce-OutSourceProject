@@ -1,4 +1,5 @@
 import React from "react";
+import LazyLoad from 'react-lazyload';
 
 const ContentSection = ({ imageOnLeft, imageSrc, text, heading }) => {
   return (
@@ -8,11 +9,14 @@ const ContentSection = ({ imageOnLeft, imageSrc, text, heading }) => {
       } my-8 p-8 max-md:flex-wrap bg-white justify-center rounded `}
     >
       <div className="w-[50%] max-md:w-[100%]">
+        <LazyLoad height={200} offset={100} placeholder={<div>Loading...</div>}>
         <img
           src={imageSrc}
           alt="About Us"
+          loading="lazy"
           className="w-full h-[75vh] bg-black object-cover opacity-90"
         />
+        </LazyLoad>
         
       </div>
       <div className="w-[50%] max-md:w-[100%] flex flex-col justify-center items-center max-md:p-2 p-8">

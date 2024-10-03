@@ -12,7 +12,7 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="relative inline-block text-left mt-4">
+    <div className="relative inline-block text-left mt-0">
       <div>
         <button
           onClick={() => setDropdownOpen(!isDropdownOpen)}

@@ -4,12 +4,15 @@ import rightimg from "../../../assets/images/jersyabout.jpg";
 import leftimg from "../../../assets/images/leftimg.jpg";
 import AboutUsImage from "../../../assets/images/aboutusimg.jpg";
 import WhyChooseUs from "./WhyChooseUs";
+import LazyLoad from 'react-lazyload';
 
 const AboutUsPage = () => {
   return (
     <div className="bg-[#EBEDFF] pb-10 max-md:p-2">
+      <LazyLoad height={200} offset={200} placeholder={<div>Loading...</div>}>
       <div
         className="relative container-fluid bg-no-repeat bg-cover bg-center flex justify-center items-center h-[78vh]"
+
         style={{ backgroundImage: `url(${AboutUsImage})` }}
       >
         {/* Content */}
@@ -17,7 +20,7 @@ const AboutUsPage = () => {
           <h2 className="text-4xl font-bold text-black">About us</h2>
         </div>
       </div>
-
+      </LazyLoad>
       <div className="container mx-4 max-md:mx-0">
         <ContentSection
           heading="Who We Are"

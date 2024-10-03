@@ -233,18 +233,21 @@
 
 import { useTranslation } from 'react-i18next';
 import heroimage from "../../assets/images/men.jpg";
+import americafc from "../../assets/images/americafc.jpg";
+import chivasfc from "../../assets/images/chivasfc.jpg";
+import mexicoteam from "../../assets/images/mexicoteam.webp";
+import cruzazulfc from "../../assets/images/cruzazulfc.png";
+import realmadrid from "../../assets/images/realmadrid.png";
+import nike from "../../assets/images/nike.webp";
+import castore from "../../assets/images/castore.webp";
 import {
   Airplay,
-  BabyIcon,
-  CloudLightning,
   Heater,
   Images,
   Shirt,
-  ShirtIcon,
   ShoppingBasket,
-  UmbrellaIcon,
   WashingMachine,
-  WatchIcon,
+
 } from "lucide-react";
 import { Card, CardContent } from "@/components/smallCommonComponents/CommonCard";
 import { useEffect, useState } from "react";
@@ -261,28 +264,26 @@ import ProductDetailsDialog from "@/components/userScreenComponents/ProductDetai
 import { getFeatureImages } from "@/store/commonSlice";
 
 const categoriesWithIcon = [
-  { id:"men", label: "AMERICA FC", icon: ShirtIcon },
-  { id: "women", label: "CHIVAS FC", icon: CloudLightning },
-  { id: "kids", label: "MEXICO TEAM", icon: BabyIcon },
-  { id: "accessories", label: "CRUZ AZUL FC", icon: WatchIcon },
-  { id: "footwear", label: "REAL MADRID", icon: UmbrellaIcon },
-  { id: "footwear", label: "CASTORE RED BULL ", icon: UmbrellaIcon },
-  { id: "footwear", label: "NIKE AF1 WHITE", icon: UmbrellaIcon },
-  { id: "footwear", label: "NIKE AF1 BLACK ", icon: UmbrellaIcon },
-  { id: "footwear", label: "NIKE AF1 BLACK ", icon: UmbrellaIcon },
-  
+  { id:"americafc", label: "AMERICA FC", icon: americafc },
+  { id: "chivasfc", label: "CHIVAS FC", icon: chivasfc },
+  { id: "mexicoteam", label: "MEXICO TEAM", icon: mexicoteam },
+  { id: "cruzazulfc", label: "CRUZ AZUL FC", icon: cruzazulfc },
+  { id: "realmadrid", label: "REAL MADRID", icon: realmadrid },
+  { id: "castoreredbull", label: "CASTORE RED BULL ", icon: castore },
+  { id: "nikewhite", label: "NIKE AF1 WHITE", icon: nike },
+  { id: "nikeblack", label: "NIKE AF1 BLACK ", icon: nike },
 ];
 
-const brandsWithIcon = [
-  { id: "nike", label: "Nike", icon: Shirt },
-  { id: "adidas", label: "Adidas", icon: WashingMachine },
-  { id: "puma", label: "Puma", icon: ShoppingBasket },
-  { id: "castore", label: "Castore", icon: Airplay },
-  { id: "chivas", label: "Chivas", icon: Images },
-  { id: "america", label: "Club América", icon: Heater },
-  { id: "mexico", label: "Mexico", icon: Heater },
-  { id: "cruz-azul", label: "Cruz Azul", icon: Heater },
-];
+// const brandsWithIcon = [
+//   { id: "nike", label: "Nike", icon: Shirt },
+//   { id: "adidas", label: "Adidas", icon: WashingMachine },
+//   { id: "puma", label: "Puma", icon: ShoppingBasket },
+//   { id: "castore", label: "Castore", icon: Airplay },
+//   { id: "chivas", label: "Chivas", icon: Images },
+//   { id: "america", label: "Club América", icon: Heater },
+//   { id: "mexico", label: "Mexico", icon: Heater },
+//   { id: "cruz-azul", label: "Cruz Azul", icon: Heater },
+// ];
 
 function ShoppingHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -298,8 +299,7 @@ function ShoppingHome() {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const { t } = useTranslation(); // Destructure 't' from useTranslation hook
-
+  const { t } = useTranslation(); 
   function handleNavigateToListingPage(getCurrentItem, section) {
     sessionStorage.removeItem("filters");
     const currentFilter = {
@@ -401,37 +401,18 @@ function ShoppingHome() {
             {t("shop_by_category")} 
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {categoriesWithIcon.map((categoryItem) => (
+            {categoriesWithIcon.map((categoryItem,id) => (
               <Card
+               key={id}
                 onClick={() =>
                   handleNavigateToListingPage(categoryItem, "category")
                 }
                 className="cursor-pointer hover:shadow-lg transition-shadow"
               >
                 <CardContent className="flex flex-col items-center justify-center p-6">
-                  <categoryItem.icon className="w-12 h-12 mb-4 text-primary" />
+                  <img src={categoryItem?.icon} className='h-20 w-22'></img>
+                  {/* <categoryItem.icon className="w-12 h-12 mb-4 text-primary" /> */}
                   <span className="font-bold">{categoryItem.label}</span>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            {t("shop_by_brand")} {/* Localized Shop by Brand */}
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {brandsWithIcon.map((brandItem) => (
-              <Card
-                onClick={() => handleNavigateToListingPage(brandItem, "brand")}
-                className="cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <CardContent className="flex flex-col items-center justify-center p-6">
-                  <brandItem.icon className="w-12 h-12 mb-4 text-primary" />
-                  <span className="font-bold">{brandItem.label}</span>
                 </CardContent>
               </Card>
             ))}
@@ -445,10 +426,11 @@ function ShoppingHome() {
           <h2 className="text-3xl font-bold text-center mb-8">
              Featured Products
           </h2>
-           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
             {productList && productList.length > 0
-              ? productList.map((productItem) => (
+              ? productList.map((productItem,id) => (
                   <ShoppingProductTile
+                    key={id}
                     handleGetProductDetails={handleGetProductDetails}
                     product={productItem}
                     handleAddtoCart={handleAddtoCart}
