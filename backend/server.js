@@ -14,6 +14,7 @@ const shopOrderRouter = require("./routes/shopRoutes/orderRoutes.js");
 const shopSearchRouter = require("./routes/shopRoutes/searchRoutes.js");
 const shopReviewRouter = require("./routes/shopRoutes/reviewRoutes.js");
 const commonFeatureRouter = require("./routes/commonRoutes/featureRoutes.js");
+const userRouter=require("./routes/adminRoutes/userRoutes.js")
 
 dotenv.config();
 const app = express();
@@ -46,6 +47,7 @@ app.use("/api/shop/order", shopOrderRouter);
 app.use("/api/shop/search", shopSearchRouter);
 app.use("/api/shop/review", shopReviewRouter);
 app.use("/api/common/feature", commonFeatureRouter);
+app.use("/api",userRouter)
 
 const PORT = process.env.PORT || 5000;
 app.listen(
