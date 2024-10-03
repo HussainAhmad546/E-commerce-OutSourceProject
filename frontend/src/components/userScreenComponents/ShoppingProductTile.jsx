@@ -1,6 +1,6 @@
 import { Card, CardContent, CardFooter } from "../smallCommonComponents/CommonCard";
 import { Button } from "../smallCommonComponents/ButtonVariants";
-import { brandOptionsMap, categoryOptionsMap } from "@/constant";
+import { categoryOptionsMap } from "@/constant";
 import { Badge } from "../smallCommonComponents/BadgeVariants";
 
 function ShoppingProductTile({
@@ -9,13 +9,13 @@ function ShoppingProductTile({
   handleAddtoCart,
 }) {
   return (
-    <Card className="w-full max-w-sm mx-auto flex flex-col h-full">
+    <Card className="w-[93%] max-w-sm mx-auto flex  flex-col h-full">
       <div onClick={() => handleGetProductDetails(product?._id)}>
         <div className="relative">
           <img
             src={product?.image}
             alt={product?.title}
-            className="w-full h-[300px] object-cover rounded-t-lg"
+            className="w-full h-[220px] mt-4 object-contain rounded-t-lg"
           />
           {/* Badges */}
           {product?.totalStock === 0 ? (
@@ -39,9 +39,9 @@ function ShoppingProductTile({
             <span className="text-[16px] text-muted-foreground">
               {categoryOptionsMap[product?.category]}
             </span>
-            <span className="text-[16px] text-muted-foreground">
+            {/* <span className="text-[16px] text-muted-foreground">
               {brandOptionsMap[product?.brand]}
-            </span>
+            </span> */}
           </div>
           <div className="flex justify-between items-center mb-2">
             <span

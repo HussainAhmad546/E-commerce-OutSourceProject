@@ -58,25 +58,15 @@ export const addProductFormElements = [
     name: "category",
     componentType: "select",
     options: [
-      { id: "men", label: "Men" },
-      { id: "women", label: "Women" },
-      { id: "kids", label: "Kids" },
-      { id: "accessories", label: "Accessories" },
-      { id: "footwear", label: "Footwear" },
+      { id: "americafc", label: "America fc" },
+      { id: "chivasfc", label: "Chivas fc" },
+      { id: "cruzazulfc", label: "Cruz Azul Fc" },
+      { id: "realmadrid", label: "Real Madrid" },
+      { id: "castoreredbull", label: "Castore Red Bull" },
+      { id: "nikewhite", label: "Nike AF1 White" },
+      { id: "nikeblack", label: "Nike AF1 Black" },
+      { id: "mexicoteam", label: "Mexico Team" },
 
-    ],
-  },
-  {
-    label: "Brand",
-    name: "brand",
-    componentType: "select",
-    options: [
-      { id: "nike", label: "Nike" },
-      { id: "adidas", label: "Adidas" },
-      { id: "puma", label: "Puma" },
-      { id: "levi", label: "Levi's" },
-      { id: "zara", label: "Zara" },
-      { id: "h&m", label: "H&M" },
     ],
   },
   {
@@ -114,26 +104,6 @@ export const shoppingViewHeaderMenuItems = [
     path: "/shop/listing",
   },
   {
-    id: "men",
-    label: "Men",
-    path: "/shop/listing",
-  },
-  {
-    id: "women",
-    label: "Women",
-    path: "/shop/listing",
-  },
-  {
-    id: "footwear",
-    label: "Footwear",
-    path: "/shop/listing",
-  },
-  {
-    id: "accessories",
-    label: "Accessories",
-    path: "/shop/listing",
-  },
-  {
     id: "aboutUs",
     label: "About Us",
     path: "/shop/aboutus",
@@ -151,37 +121,27 @@ export const shoppingViewHeaderMenuItems = [
 ];
 
 export const categoryOptionsMap = {
-  men: "Men",
-  women: "Women",
-  kids: "Kids",
-  accessories: "Accessories",
-  footwear: "Footwear",
-};
+  americafc: "America fc",
+  chivasfc: "Chivas fc",
+  cruzazulfc: "Cruz Azul Fc",
+  realmadrid: "Real Madrid",
+  castoreredbull: "Castore Red Bull",
+  nikewhite: "Nike AF1 White",
+  nikeblack: "Nike AF1 Black",
+  mexicoteam:"Mexico Team"
+}
 
-export const brandOptionsMap = {
-  nike: "Nike",
-  adidas: "Adidas",
-  puma: "Puma",
-  levi: "Levi",
-  zara: "Zara",
-  "h&m": "H&M",
-};
 
 export const filterOptions = {
   category: [
-    { id: "men", label: "Men" },
-    { id: "women", label: "Women" },
-    { id: "kids", label: "Kids" },
-    { id: "accessories", label: "Accessories" },
-    { id: "footwear", label: "Footwear" },
-  ],
-  brand: [
-    { id: "nike", label: "Nike" },
-    { id: "adidas", label: "Adidas" },
-    { id: "puma", label: "Puma" },
-    { id: "levi", label: "Levi's" },
-    { id: "zara", label: "Zara" },
-    { id: "h&m", label: "H&M" },
+    { id: "americafc", label: "America fc" },
+    { id: "chivasfc", label: "Chivas fc" },
+    { id: "cruzazulfc", label: "Cruz Azul Fc" },
+    { id: "realmadrid", label: "Real Madrid" },
+    { id: "castoreredbull", label: "Castore Red Bull" },
+    { id: "nikewhite", label: "Nike AF1 White" },
+    { id: "nikeblack", label: "Nike AF1 Black" },
+    { id: "mexicoteam", label: "Mexico Team" },
   ],
 };
 

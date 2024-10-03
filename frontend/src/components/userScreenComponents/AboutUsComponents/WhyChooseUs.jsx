@@ -1,5 +1,6 @@
 import React from "react";
 import whychooseus from '../../../assets/images/whychooseus.jpg';
+import LazyLoad from 'react-lazyload';
 
 const WhyChooseUs = () => {
   return (
@@ -28,12 +29,14 @@ const WhyChooseUs = () => {
           Discover and shop from our featured brands. Whether you're looking for international or local jerseys, we have something for everyone.
         </p>
       </div>
-      <div className="w-[50%] flex">
+      <div className="w-[50%] flex ml-16">
+        <LazyLoad height={200} offset={200} placeholder={<div>Loading...</div>}>
         <img
           src={whychooseus}
           alt="Why Choose Us"
           className="w-full h-[95vh] opacity-90"
         />
+        </LazyLoad>
       </div>
     </div>
   );
