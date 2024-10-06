@@ -15,14 +15,16 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  status:{
-    type:String,
-    required:true,
+  status: {
+    type: String,
+    enum: ["active" , "blocked"], 
+    default: 'active',
   },
   role: {
     type: String,
-    default: "user",
-  },
+    enum: ['admin', 'user'],
+    default: 'user'
+},
 });
 
 const User = mongoose.model("User", UserSchema);
