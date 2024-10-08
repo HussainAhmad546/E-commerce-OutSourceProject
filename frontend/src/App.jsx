@@ -30,6 +30,9 @@ import AboutUsPage from "./components/userScreenComponents/AboutUsComponents";
 import ContactUs from "./components/userScreenComponents/ContactUsComponents";
 import PrivacyPolicy from "./screens/userScreen/PrivacyPolicy";
 import TermsOfService from "./screens/userScreen/TermsOfService";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -40,7 +43,7 @@ function App() {
   useEffect(() => {
     dispatch(checkAuth());
   }, [dispatch]);
-
+  
   if (isLoading) {
     return (
       <div className="center-loader">
@@ -114,6 +117,7 @@ function App() {
         <Route path="/unauth-page" element={<UnauthPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <ToastContainer/>
     </div>
   );
 }

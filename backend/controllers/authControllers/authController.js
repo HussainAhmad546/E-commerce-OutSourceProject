@@ -48,6 +48,9 @@ const loginUser = async (req, res) => {
         success: false,
         message: "User doesn't exist! Please register first",
       });
+       if (checkUser.status === "blocked") {
+      return res.status(403).json({ message: "Your account is blocked. Please contact support." });
+    }
 
     const checkPasswordMatch = await bcrypt.compare(
       password,
