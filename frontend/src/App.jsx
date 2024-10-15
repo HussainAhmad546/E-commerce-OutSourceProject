@@ -32,6 +32,8 @@ import PrivacyPolicy from "./screens/userScreen/PrivacyPolicy";
 import TermsOfService from "./screens/userScreen/TermsOfService";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import StripeSuccess from "./screens/userScreen/StripeSuccessScreen";
+import StripeCancelPaymentScreen from "./screens/userScreen/StripeCancelPaymentScreen";
 
 
 function App() {
@@ -76,6 +78,8 @@ function App() {
           <Route path="register" element={<AuthRegister />} />
         </Route>
         <Route path="/" element={<AuthLayout />}>
+        <Route path="shop/stripe-success" element={<StripeSuccess />} />
+        <Route path="shop/stripe-cancel" element={<StripeCancelPaymentScreen />} />
           <Route path="forget-password" element={<ForgetPasswordScreen />} />
           <Route path="reset-password-sent" element={<ResetPasswordSentScreen />} />
           <Route path="reset-your-password/:token" element={<ResetPasswordScreen/>} />

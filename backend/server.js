@@ -1,9 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const  dotenv = require('dotenv');
-const colors = require('colors');
-const  connectDB = require('./config/db.js');
+const dotenv = require("dotenv");
+const colors = require("colors");
+const connectDB = require("./config/db.js");
 const authRouter = require("./routes/authRoutes/authRoutes.js");
 const adminProductsRouter = require("./routes/adminRoutes/productsRoutes.js");
 const adminOrderRouter = require("./routes/adminRoutes/orderRoutes.js");
@@ -14,7 +14,7 @@ const shopOrderRouter = require("./routes/shopRoutes/orderRoutes.js");
 const shopSearchRouter = require("./routes/shopRoutes/searchRoutes.js");
 const shopReviewRouter = require("./routes/shopRoutes/reviewRoutes.js");
 const commonFeatureRouter = require("./routes/commonRoutes/featureRoutes.js");
-const userRouter=require("./routes/adminRoutes/userRoutes.js")
+const userRouter = require("./routes/adminRoutes/userRoutes.js");
 
 dotenv.config();
 const app = express();
@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: "http://localhost:5173",
-    methods: ["GET", "POST", "DELETE", "PUT","PATCH"],
+    methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
     allowedHeaders: [
       "Content-Type",
       "Authorization",
@@ -47,10 +47,15 @@ app.use("/api/shop/order", shopOrderRouter);
 app.use("/api/shop/search", shopSearchRouter);
 app.use("/api/shop/review", shopReviewRouter);
 app.use("/api/common/feature", commonFeatureRouter);
-app.use("/api",userRouter)
+app.use("/api", userRouter);
+app.get("/", (req, res) => {
+  res.send("Hurrah! Backend is running smoothly");
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(
   PORT,
-  console.log(`App running in ${process.env.PORT} mode on port ${PORT}`.yellow.bold)
+  console.log(
+    `App running in ${process.env.PORT} mode on port ${PORT}`.yellow.bold
+  )
 );
