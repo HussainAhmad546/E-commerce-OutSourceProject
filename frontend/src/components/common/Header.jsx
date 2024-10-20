@@ -24,7 +24,7 @@ import UserCartWrapper from "../userScreenComponents/UserCartWrapper";
 import { useEffect, useState } from "react";
 import { fetchCartItems } from "@/store/userScreenSlice/cartSlice";
 import { Label } from "../smallCommonComponents/LabelVariantsCommon";
-import LanguageSwitcher from "./LanguageSwitcher";
+import LanguageSwitcher from "./Languageswitcher";
 
 function MenuItems() {
   const navigate = useNavigate();
