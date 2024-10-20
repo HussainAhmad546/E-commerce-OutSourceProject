@@ -2,7 +2,7 @@ import { AlignJustify, LogOut } from "lucide-react";
 import { Button } from "../smallCommonComponents/ButtonVariants";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "@/store/authScreenSlice";
-import LanguageSwitcher from "../common/Languageswitcher";
+// import LanguageSwitcher from "../common/Languageswitcher";
 import { useTranslation } from "react-i18next";
 
 function AdminHeader({ setOpen }) {
@@ -19,7 +19,7 @@ function AdminHeader({ setOpen }) {
         <AlignJustify />
         <span className="sr-only">{t('toggleMenu')}</span>
       </Button>
-      <LanguageSwitcher />
+      {/* <LanguageSwitcher /> */}
       <div className="flex flex-1 justify-end">
         <Button
           onClick={handleLogout}

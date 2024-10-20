@@ -24,7 +24,7 @@ import UserCartWrapper from "../userScreenComponents/UserCartWrapper";
 import { useEffect, useState } from "react";
 import { fetchCartItems } from "@/store/userScreenSlice/cartSlice";
 import { Label } from "../smallCommonComponents/LabelVariantsCommon";
-import LanguageSwitcher from "./Languageswitcher";
+// import LanguageSwitcher from "./Languageswitcher";
 
 function MenuItems() {
   const navigate = useNavigate();
@@ -90,7 +90,7 @@ function HeaderRightContent() {
 
   return (
     <div className="flex lg:items-center lg:flex-row flex-col gap-4">
-      <LanguageSwitcher/>
+      {/* <LanguageSwitcher/> */}
       <Sheet open={openCartSheet} onOpenChange={() => setOpenCartSheet(false)}>
         <Button
           onClick={() => setOpenCartSheet(true)}
